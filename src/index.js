@@ -1,8 +1,9 @@
 import React, { Component } from "react"; 
 import { render } from "react-dom";
 import axios from "axios";
-import "antd/dist/antd.css";
 import { Slider, Select } from "antd";
+import "antd/dist/antd.css";
+import "./index.css"
 
 export class App extends Component {
 
@@ -73,31 +74,49 @@ export class App extends Component {
         );
     
         return (
-        <div className="app">
-                <div className="select">
-                    <Select mode="multiple" style={{ width: "100%" }} onChange={this.handleChange} placeholder="Умный поиск">
+            <div className="app">
+      
+              <div className="header">
+                <img className="header__logo" src="https://128121.selcdn.ru/react/logo.png" alt="takelook" />
+              </div>
+      
+              <div className="container">
+      
+                <div className="filters">
+                  <div className="filters__container">
+      
+                    <div className="select">
+                      <Select mode="multiple" style={{ width: "100%" }} onChange={this.handleChange} placeholder="Умный поиск">
                         {params.map((n, i) => (
-                        <Select.Option key={i} value={n}>{n}</Select.Option>
-                    ))}
-                    </Select>
-                </div>
-                <div className="slider">
-                    <div className="slider__container">
-                    <div>Стоимость</div>
-                    <div>от {from} до {to}</div>
+                          <Select.Option key={i} value={n}>{n}</Select.Option>
+                        ))}
+                      </Select>
                     </div>
-                    <Slider range min={min} max={max} defaultValue={[1100, 2200]} onChange={this.onChange} />
+      
+                    <div className="slider">
+                      <div className="slider__container">
+                        <div>Стоимость</div>
+                        <div>от {from} до {to}</div>
+                      </div>
+                      <Slider range min={min} max={max} defaultValue={[1100, 2200]} onChange={this.onChange} />
+                    </div>
+      
+                  </div>
                 </div>
-
-                {filteredStudios.map(studio =>
+      
+                <div className="studios">
+                  {filteredStudios.map(studio =>
                     <div key={studio.id} className="studio">
-                        <div>{studio.name}</div>
+                      <img className="studio__img" src={studio.view} alt={studio.name} />
+                      <div className="studio__name">{studio.name}</div>
                     </div>
                     )
-                }
-
-        </div>
-        );
+                  }
+                </div>
+              </div>
+      
+            </div>
+          );
     }
 }
 

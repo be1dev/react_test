@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+  }
+  body{
+    min-width: 320px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    height: 100%;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+  }
+  .studios {
+    display: flex;
+    flex-wrap: wrap;
+    order: -1;
+    width: 75%;
+    margin-right: 40px;
+  }
+  .filters {
+    width: 25%;
+    min-width: 300px;
+  }
+  .studio {
+    width: 30%;
+    border: 1px solid #e8e8e8;
+    height: inherit;
+    margin-right: 5%;
+    margin-bottom: 20px;
+  }
+  
+  .studio:nth-child(3n) {
+    margin-right: 0;
+  }
+  
+  .studio__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .studio__name {
+    text-align: center;
+    padding: 20px;
+  }
+  .slider {
+    border: 1px solid #e8e8e8;
+    padding: 15px 25px;
+    margin: 40px 0;
+  }
+  .slider__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 900px) {
+    .studios{
+      margin-right: 0;
+      width: 100%;
+    }
+    .studio {
+      width: 47%;
+      margin-right: 6%;
+    }
+    .studio:nth-child(3n) {
+      margin-right: 6%;
+    }
+    .studio:nth-child(2n) {
+      margin-right: 0;
+    }
+    .container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .filters {
+      order: -1;
+      width: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    .studio {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  .spinner{
+    height:140px;
+    width: 140px;
+    background: url('https://discuss-assets.s3.amazonaws.com/original/3X/0/3/03ad072969fc47ab98c776a60afc76d61e4877e8.svg') no-repeat;
+    background-position: 22px 30px;
+    background-size: 96px 96px;
+    animation: spin infinite .7s linear;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  };
