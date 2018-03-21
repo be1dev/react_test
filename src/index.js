@@ -24,7 +24,7 @@ export class App extends Component {
         //минимальная цена
         const min = res.data.reduce(
           (acc, el) => (acc > el.price ? el.price : acc),
-          Infinity//на первой итерации значение накопителя всегда будет больше первого элемента массива
+          Infinity//на первой итерации значение накопителя будет больше первого элемента массива
         );
         const max = res.data.reduce(
           (acc, el) => (acc < el.price ? el.price : acc),
@@ -65,7 +65,7 @@ export class App extends Component {
   render() {
     const { studios, params, selectedParams, min, max, from, to, isLoading, error } = this.state;
 
-    //формируем массив из студий, удовлетворяющих условиям от двух фильтров
+    //формируем массив из студий, удовлетворяющих условиям двух фильтров
     const filteredStudios = studios.filter(
       //от фильтра Slider
       studio => studio.price >= from && studio.price <= to//цена, которая больше либо равна значению ползунка "от", и меньше либо равна значению ползунка "до"
